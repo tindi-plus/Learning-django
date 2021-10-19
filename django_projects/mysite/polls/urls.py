@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 app_name = 'polls'
-
+""""
 urlpatterns = [
     # example: /polls/
     path('', views.index, name='index'),
@@ -15,6 +15,17 @@ urlpatterns = [
     path('<int:question_id>/results/', views.results, name='results'),
 
     # example: /polls/5/vote/
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+
+]
+The above is creating the urls patterns without the generic views 
+provided by django.
+"""
+
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     path('<int:question_id>/vote/', views.vote, name='vote'),
 
 ]

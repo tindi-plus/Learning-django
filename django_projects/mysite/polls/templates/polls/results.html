@@ -1,0 +1,16 @@
+<!--
+@author Tindi Sommers
+@email tindisommers@gmail.com
+@create date 19-10-2021 10:45:12
+@modify date 19-10-2021 11:17:23
+@desc [description]
+-->
+<h1>{{ question.question_text }}</h1>
+<ul>
+    {% for choice in question.choice_set.all %}
+    <li>
+        {{ choice.choice_text }} -- {{ choice.votes }} vote{{choice.votes|pluralize}}
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
