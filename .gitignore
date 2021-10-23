@@ -9,6 +9,7 @@ __pycache__/
 #my customizations
 *.vscode
 *keys.py
+*.pdf
 
 # Distribution / packaging
 .Python
