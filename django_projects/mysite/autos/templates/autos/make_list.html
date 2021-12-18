@@ -1,0 +1,25 @@
+<h1>Make List</h1>
+{% block content %}
+{% if make_list %}
+    <ul>
+        {% for make in make_list %}
+
+        <li>
+            {{make.name}}
+            <a href="{% url 'autos:make_update' make.id %}">Update Make</a> | 
+            <a href="{% url 'autos:make_delete' make.id %}">Delete Make</a> <br/>
+
+        </li>
+        {% endfor %}
+    </ul>
+    
+{% endif %}
+
+<p>
+    <a href="{% url 'autos:all' %}">View the Auto List </a><br/>
+    <a href="{% url 'autos:auto_create' %}">Create an Auto </a>
+</p>
+
+{% endblock %}
+    
+    

@@ -1,0 +1,35 @@
+
+<h1>Auto List</h1>
+{% block content %}
+{% if auto_list %}
+    <ul>
+        {% for auto in auto_list %}
+
+        <li>
+            {{auto.auto_name}} {{auto.make}}
+            <a href="{% url 'autos:auto_update' auto.id %}">Update Auto</a> | 
+            <a href="{% url 'autos:auto_delete' auto.id %}">Delete Auto</a> <br/>
+            {{auto.comments}} ({{auto.mileage}} miles)
+        </li>
+        {% endfor %}
+    </ul>
+    
+{% endif %}
+
+<p>
+{% if make_count > 0 %}
+    <a href="{% url 'autos:auto_create' %}">Add an Auto</a>
+
+{% else %}
+    Please add a Make before adding an Auto.
+    
+{% endif %}
+</p>
+<p>
+    <a href="{% url 'autos:make_list' %}">View the Make List </a>({{make_count}})<br/>
+    <a href="{% url 'autos:make_create' %}">Create a Make </a>
+</p>
+
+{% endblock %}
+    
+    

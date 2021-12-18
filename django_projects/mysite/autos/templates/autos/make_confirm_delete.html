@@ -1,0 +1,10 @@
+{% block content %}
+
+<h1>Delete Make</h1>
+<p>Are you sure you want to delete the make: {{make}}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, Delete"/>
+    <input type="hidden" onclick="location.window='{% url 'autos:all' %}'; return False" Value="Cancel">
+</form>
+{% endblock %}
